@@ -10,8 +10,8 @@ const main = async () => {
   const { ideation, dalle } = await generateImage();
 
   const time = getFullTime();
-  const src = `./view/${time}`;
-  const json = JSON.stringify({ ideation, src: dalle }, null, 2);
+  const src = `view/${time}`;
+  const json = JSON.stringify({ ...ideation, src: dalle }, null, 2);
 
   fs.mkdirSync(src, { recursive: true })
 

@@ -6,7 +6,7 @@ const fs = require("fs");
 
 const mergeSrc = (src) => `data:image/png;base64,${src}`;
 
-const imageEdit = async (src = './view/test') => {
+const imageEdit = async (src = 'view/test') => {
   const rowImage = `${src}/image.jpg`;
 
   const bRow = await sharp(rowImage).flop(true).toBuffer();
