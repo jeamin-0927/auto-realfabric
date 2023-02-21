@@ -126,7 +126,7 @@ const autoUpload = async (src = 'view/test') => {
     }
   })
 
-  console.log(res.data);
+  return res.data;
 }
 
 module.exports = autoUpload;

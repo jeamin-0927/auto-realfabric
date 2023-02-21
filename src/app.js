@@ -5,6 +5,7 @@ const generateImage = require('./services/auto_pattern_generator');
 const downloadImage = require('./utils/downloadImage');
 const getFullTime = require('./utils/getFullTime');
 const imageEdit = require('./utils/imageEdit');
+const autoUpload = require('./utils/autoUpload');
 
 const main = async () => {
   const { ideation, dalle } = await generateImage();
@@ -13,7 +14,7 @@ const main = async () => {
   const src = `view/${time}`;
   const json = JSON.stringify({ ...ideation, src: dalle }, null, 2);
 
-  fs.mkdirSync(src, { recursive: true })
+  fs.mkdirSync(src, { recursive: true });
 
   await downloadImage(dalle, `${src}/image.jpg`);
 
@@ -21,6 +22,8 @@ const main = async () => {
   await imageEdit(src);
 
   console.log(src);
+  const upload = await autoUpload(src);
+  console.log(upload);
 }
 
 for(let i = 0; i < 1; i++) {
