@@ -26,6 +26,18 @@ const main = async () => {
   console.log(upload);
 }
 
-for(let i = 0; i < 1; i++) {
-  main();
+const start = async (loop) => {
+  for(let i = 0; i < loop; i++) {
+    let statues = false;
+    try{
+      await main();
+      statues = true;
+    }
+    catch (e){
+      console.log(e);
+    }
+    console.log(`---------- ${i+1}/${loop}: ${statues} ----------`);
+  }
 }
+
+start(50);
