@@ -40,4 +40,4 @@ const start = async (loop) => {
   }
 }
 
-start(50);
+start(5);
